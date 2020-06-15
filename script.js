@@ -2,6 +2,8 @@ const win = "You won!";
 const lose = "You lost.";
 const drawn = "Darwn!"
 let numberOfGames = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 let computerPlay = () =>{
     let computerSelection = Math.floor(Math.random() * 3);
@@ -20,42 +22,45 @@ let round = (playerSelection,computerSelection) =>{
     console.log(playerSelection);
     console.log(computerSelection);
     if(playerSelection === computerSelection){
+        console.log(`${playerScore} : ${computerScore}`)
         return drawn;
     }
     if(playerSelection === `rock`){
         if(computerSelection === `paper`){
+            console.log(`${playerScore} : ${computerScore+=1}`);
             return lose;
-        }return win;
+        }console.log(`${playerScore+=1} : ${computerScore}`);
+        return win;
     }
     if(playerSelection === `paper`){
         if(computerSelection === `rock`){
-            return lose;
-        }return win;
+            console.log(`${playerScore} : ${computerScore+=1}`);
+            return win;
+        }console.log(`${playerScore} : ${computerScore+=1}`);
+        return lose;
     }
     if(playerSelection === `scissor`){
         if(computerSelection === `rock`){
+            console.log(`${playerScore} : ${computerScore+=1}`);
             return lose;
-        }return win;
+        }console.log(`${playerScore+=1} : ${computerScore}`);
+        return win;
     }
 }
 
-let scoreCounter = () => {
-    let playerScore = 0;
-    let computerScore = 0;
-    if(round().value === win){
-        playerScore++;
-    }else if(round().value === lose){
-        computerScore++;
-    }
-    console.log(`${playerScore} : ${computerScore}`)
-}
 
-let gameMatch = (rounds = 0) => {
-    while(rounds < 5){
+
+let gameMatch = (rounds = 1) => {
+    while(rounds < 6){
+        console.log(`Round ${rounds} out of 5`);
         round(prompt(`Choose`),computerPlay());
-        console.log(rounds);
         rounds++;
     }
+    if(playerScore>computerScore){
+        return `You won!`;
+    }else if(playerScore<computerScore){
+        return `You lost`;
+    }else{return `It's a drawn!`}
 }
 
 console.log(gameMatch())
