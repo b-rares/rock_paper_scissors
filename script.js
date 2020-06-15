@@ -1,55 +1,51 @@
-let computerPlay = () => {
-    let random = Math.floor(Math.random() * 4);
-    switch(random){
+const win = "You won!";
+const lose = "You lost.";
+const drawn = "Darwn!"
+let rounds = 0;
+let numberOfGames = 0;
+
+let computerPlay = () =>{
+    let computerSelection = Math.floor(Math.random() * 3);
+    switch(computerSelection){
         case 0:
             return `rock`;
         case 1:
-             return `paper`;
-        case 2:
             return `scissor`;
+        case 2:
+            return `paper`;
     }
 }
 
-let roundPlay = (playerSelection,computerSelection) => {
-   if(playerSelection.toLowerCase() == `rock`){
-       if(computerSelection == `rock`){
-           return `It's a draw!`
-       }else if(computerSelection == `paper`){
-           return `Computer beated you :(!`;
-       }return `You're awsome.You win!`
-   }
-   if(playerSelection.toLowerCase() == `paper`){
-       if(computerSelection == `rock`){
-           return `You're awsome.You win!`;
-       }else if (computerSelection == `paper`){
-           return `It's a draw!`;
-       }return `Computer beated you :(!`;
-   }
-   if(playerSelection.toLowerCase() == `scissor`){
-       if(computerSelection == `rock`){
-           return `Computer beated you :(!`;
-       }else if (computerSelection == `paper`){
-           return `You're awsome.You win!`;
-       }return `It's a draw!`;
-   }
-}
-
-let game = () => {
-    let playerScore = 0;
-    let computerScore = 0;
-    let i = 0;
-    while(i < 5){
-   if(roundPlay().value == `You're awsome.You win!`){
-       playerScore++;
-   }else if(roundPlay().value == `Computer beated you :(!`){
-       computerScore++;
+let round = (playerSelection,computerSelection) =>{
+    playerSelection = playerSelection.toLowerCase();
+    console.log(playerSelection);
+    console.log(computerSelection);
+    if(playerSelection === computerSelection){
+        return drawn;
     }
-    i++;
-}
-   return `${playerScore} : ${computerScore}`;
+    if(playerSelection === `rock`){
+        if(computerSelection === `paper`){
+            return lose;
+        }return win;
+    }
+    if(playerSelection === `paper`){
+        if(computerSelection === `rock`){
+            return lose;
+        }return win;
+    }
+    if(playerSelection === `scissor`){
+        if(computerSelection === `rock`){
+            return lose;
+        }return win;
+    }
 }
 
-let playerSelection = `rock`;
-let computerSelection = computerPlay();
-console.log(roundPlay(playerSelection,computerSelection));
-console.log(game());
+let gameMatch = (rounds) => {
+    while(rounds < 5){
+        round(prompt(`Alege`),computerPlay());
+        console.log(rounds);
+        rounds++;
+    }
+}
+
+console.log(gameMatch(0))
