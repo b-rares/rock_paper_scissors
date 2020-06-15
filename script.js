@@ -1,7 +1,6 @@
 const win = "You won!";
 const lose = "You lost.";
 const drawn = "Darwn!"
-let rounds = 0;
 let numberOfGames = 0;
 
 let computerPlay = () =>{
@@ -40,12 +39,23 @@ let round = (playerSelection,computerSelection) =>{
     }
 }
 
-let gameMatch = (rounds) => {
+let scoreCounter = () => {
+    let playerScore = 0;
+    let computerScore = 0;
+    if(round().value === win){
+        playerScore++;
+    }else if(round().value === lose){
+        computerScore++;
+    }
+    console.log(`${playerScore} : ${computerScore}`)
+}
+
+let gameMatch = (rounds = 0) => {
     while(rounds < 5){
-        round(prompt(`Alege`),computerPlay());
+        round(prompt(`Choose`),computerPlay());
         console.log(rounds);
         rounds++;
     }
 }
 
-console.log(gameMatch(0))
+console.log(gameMatch())
