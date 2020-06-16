@@ -1,0 +1,81 @@
+*{
+    margin:0;
+    padding:0;
+    text-decoration: none;
+    color:black;
+}
+
+#top{
+  text-align: center;
+  margin:40 auto;
+}
+
+#hands{
+    display:flex;
+    justify-content: space-evenly;
+    padding-left:20px;
+    padding-bottom:20px;
+
+}
+
+button{
+    height:120;
+    width: 125px;
+    background-color: white;
+    border:none;
+    color:white;
+    cursor: pointer;
+    padding:10px 10px;
+}
+
+footer{
+    position: absolute;
+    bottom:0;
+    width: 100%;
+    font-size: 30px;
+}
+
+#credits{
+    text-align: center;
+}
+
+#rock{
+    pointer-events: none;
+}
+
+button{
+    pointer-events: visible;
+}
+
+i {
+    text-align: center;
+}
+
+#reset_container{
+display:flex;
+justify-content: center;
+align-items: center;
+margin: 20 auto;
+}
+
+#p_reset{
+    font-size: 30px;
+}
+
+#reset{
+    padding:10;
+    height:40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#score_output{
+    text-align: center;
+    height: 400px;
+    margin:20 auto;
+}
+
+#rock{
+    pointer-events: visible;
+}
