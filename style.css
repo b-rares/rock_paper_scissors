@@ -79,3 +79,11 @@ margin: 20 auto;
 #rock{
     pointer-events: visible;
 }
+
+ul{
+list-style: none;
+}
+
+li{
+    font-size: 20px;
+}

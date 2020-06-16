@@ -10,7 +10,6 @@ let numberOfGames = 0;
 let playerScore = 0;
 let computerScore = 0;
 let liContent = document.createTextNode(``);
-let newLi = document.createElement('LI');
 let scoreContainer = document.getElementById('score_container');
 
 let computerPlay = () =>{
@@ -65,15 +64,16 @@ let round = (playerSelection,computerSelection) =>{
 }
 
 let matchHistory = (liContent) => {
-    if(numberOfGames <= 5){
-        newLi.appendChild(liContent);
-        scoreContainer.appendChild(newLi);
+    if(numberOfGames <= 4){
+        let newLi = document.createElement('LI');
+        newLi.append(liContent);
+        scoreContainer.append(newLi);
     }else if(win>lose){
-        scoreContainer.appendChild(`You have won!If you wish to play again,please hit Restart`)
+        scoreContainer.append(`You have won!If you wish to play again,please hit Restart`)
     }else if(win<lose){
-        scoreContainer.appendChild(`You have lost.Try your luck again hitting Restart`)
+        scoreContainer.append(`You have lost.Try your luck again hitting Restart`)
     }else{
-        scoreContainer.appendChild(`You both are awsome,it's a drawn!Try again hitting Restart`)
+        scoreContainer.append(`You both are awsome,it's a drawn!Try again hitting Restart`)
     }
 }
 
@@ -84,9 +84,9 @@ let gameStarter = (playerInput) =>{
 round(playerInput,computerPlay());
 numberOfGames++;
 if(numberOfGames > 5){
-    playerRock.querySelector("button").disabled = true;
-    playerScissor.querySelector("button").disabled = true;
-    playerPaper.querySelector("button").disabled = true;
+    playerRock.disabled = true;
+    playerScissor.disabled = true;
+    playerPaper.disabled = true;
 }
 }
 
