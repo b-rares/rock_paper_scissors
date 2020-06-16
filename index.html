@@ -8,15 +8,21 @@
 <body>
 <div id = "top"><h1>Welcome to Rock,Paper,Scissor</h1></div>
 <div id = "hands">
-    <div id="rock"><button class = "playerinput"><i class="far fa-hand-rock fa-8x"></button></i></div>
-    <div id="scissor"><button class = "playerinput"><i class="far fa-hand-scissors fa-8x"></button></i></div>
-    <div id="paper"><button class="playerinput"><i class="far fa-hand-paper fa-8x"></button></i></div>
+    <div class="divInput"><button class = "playerinput" id = "rock"><i class="far fa-hand-rock fa-8x"></button></i></div>
+    <div class="divInput"><button class = "playerinput" id= "scissor"><i class="far fa-hand-scissors fa-8x"></button></i></div>
+    <div class="divInput"><button class= "playerinput" id="paper"><i class="far fa-hand-paper fa-8x"></button></i></div>
+</div>
+<div id="reset_container">
+    <button id="reset"><p id="p_reset">RESTART</p></button>
 </div>
 <div id = "score_output">
+    <h1>Your match history</h1>
+  <ul id="score_container">
 
+  </ul>
 </div>
 <footer>
-    <p id="credits">Created by <strong><a href="#">Bunea Rares</a></strong></p>
+    <p id="credits">Created by <strong><a href="https://github.com/b-rares" target = "_blank">Bunea Rares</a></strong></p>
 </footer>
 </body>
 <script src="script.js"></script>   
